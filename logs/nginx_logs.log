@@ -1,0 +1,23 @@
+Sending build context to Docker daemon   4.83MB
+Step 1/7 : FROM		alpine:latest
+ ---> 7731472c3f2a
+Step 2/7 : RUN			apk update
+ ---> Using cache
+ ---> 464df122c6d1
+Step 3/7 : RUN			apk add nginx
+ ---> Using cache
+ ---> 83f4ce0991d4
+Step 4/7 : COPY		srcs /root
+ ---> Using cache
+ ---> a65336c77f38
+Step 5/7 : WORKDIR		/root/
+ ---> Using cache
+ ---> c1441844909a
+Step 6/7 : EXPOSE		80 443
+ ---> Using cache
+ ---> 81d9dd53d9b3
+Step 7/7 : ENTRYPOINT	["sh", "nginx_setup.sh"]
+ ---> Using cache
+ ---> 5dc05a47b17b
+Successfully built 5dc05a47b17b
+Successfully tagged nginx:latest
