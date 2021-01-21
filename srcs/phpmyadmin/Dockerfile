@@ -22,10 +22,10 @@ RUN			apk add php \
 COPY		srcs /root
 
 #Get, extract and rename pma.
-RUN			wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz
-RUN			tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz
-RUN			rm phpMyAdmin-5.0.2-all-languages.tar.gz
-RUN			mv phpMyAdmin-5.0.2-all-languages phpmyadmin
+RUN			wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz; \
+			tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz; \
+			rm phpMyAdmin-5.0.2-all-languages.tar.gz; \
+			mv phpMyAdmin-5.0.2-all-languages phpmyadmin
 
 #Define the directory you will be in when the container boots.
 WORKDIR		/root/
