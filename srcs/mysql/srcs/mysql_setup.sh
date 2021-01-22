@@ -10,4 +10,4 @@ mysql_install_db --user=root --datadir=/var/lib/mysql
 
 #Run mysqld, specifying user and --init indicates to read SQL commands
 #from init.sql file at startup.
-mysqld
+mysqld --init_file=/init.sql
