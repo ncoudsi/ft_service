@@ -10,13 +10,18 @@ RUN			apk add nginx
 #Install wget.
 RUN			apk add wget
 
-#Install php packages.
-RUN			apk add php \
-			php-cli \
-			php-cgi \
-			php-mbstring \
-			php-fpm \
-			php-mysqli
+#Install php packages (can't say wich does what, too much reading for such little understanding).
+RUN			apk add php7 \
+			php7-cli \
+			php7-cgi \
+			php7-mbstring \
+			php7-fpm \
+			php7-opcache \
+			php7-gd \
+			php7-session \
+			php7-json \
+			php7-zlib \
+			php7-mysqli
 
 #Download and extract wordpress.
 RUN			wget https://www.wordpress.org/latest.tar.gz \
