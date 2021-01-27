@@ -1,23 +1,23 @@
-Sending build context to Docker daemon  6.656kB
+Sending build context to Docker daemon  8.192kB
 Step 1/7 : FROM		alpine:latest
  ---> 7731472c3f2a
 Step 2/7 : RUN			apk update
  ---> Using cache
- ---> 464df122c6d1
+ ---> 8f893639d530
 Step 3/7 : RUN			apk add mariadb mariadb-client
  ---> Using cache
- ---> 6d37e69fb529
+ ---> ba81c23769e8
 Step 4/7 : RUN			mkdir /run/mysql
  ---> Using cache
- ---> 18b40159754e
+ ---> aa07a12a5096
 Step 5/7 : COPY		srcs /root/
  ---> Using cache
- ---> dc258b178ff0
+ ---> 21dab3f1a518
 Step 6/7 : WORKDIR		/root/
  ---> Using cache
- ---> a2d00063e19c
+ ---> 81fe924bd4fe
 Step 7/7 : ENTRYPOINT	["sh", "mysql_setup.sh"]
  ---> Using cache
- ---> dfa828871703
-Successfully built dfa828871703
-Successfully tagged mysql:latest
+ ---> 4ccd7d8a9eee
+Successfully built 4ccd7d8a9eee
+Successfully tagged mysql_img:latest
