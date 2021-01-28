@@ -3,30 +3,30 @@ Step 1/10 : FROM		alpine:latest
  ---> 7731472c3f2a
 Step 2/10 : RUN			apk update
  ---> Using cache
- ---> 8f893639d530
+ ---> 950ece253d49
 Step 3/10 : RUN			apk add nginx
  ---> Using cache
- ---> 84ac4e7b6dd2
+ ---> f0866ae069b0
 Step 4/10 : RUN			apk add wget
  ---> Using cache
- ---> 4a6420feb6c8
+ ---> 1c79afcf56a4
 Step 5/10 : RUN			apk add php7 			php7-cli 			php7-cgi 			php7-mbstring 			php7-fpm 			php7-opcache 			php7-gd 			php7-session 			php7-json 			php7-zlib 			php7-mysqli
  ---> Using cache
- ---> fd95395dc4ea
+ ---> 0ce4c0c973fb
 Step 6/10 : RUN			wget https://www.wordpress.org/latest.tar.gz 			&& tar -xf latest.tar.gz 			&& rm -rf latest.tar.gz
  ---> Using cache
- ---> 6ba94c2171d0
+ ---> ae74dc583a5a
 Step 7/10 : COPY		srcs /root
  ---> Using cache
- ---> 66f78850a750
+ ---> 7e5a978e4dfb
 Step 8/10 : WORKDIR		/root/
  ---> Using cache
- ---> 8d4666425899
+ ---> e025b4d789dc
 Step 9/10 : EXPOSE		5050
  ---> Using cache
- ---> 45ba993d6650
+ ---> b39f9800f732
 Step 10/10 : ENTRYPOINT	["sh", "wordpress_setup.sh"]
  ---> Using cache
- ---> 3c0543e4ca90
-Successfully built 3c0543e4ca90
+ ---> 333d7adffe08
+Successfully built 333d7adffe08
 Successfully tagged wordpress_img:latest

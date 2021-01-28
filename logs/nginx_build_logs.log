@@ -3,21 +3,21 @@ Step 1/7 : FROM		alpine:latest
  ---> 7731472c3f2a
 Step 2/7 : RUN			apk update
  ---> Using cache
- ---> 8f893639d530
+ ---> 950ece253d49
 Step 3/7 : RUN			apk add nginx
  ---> Using cache
- ---> 84ac4e7b6dd2
+ ---> f0866ae069b0
 Step 4/7 : COPY		srcs /root
  ---> Using cache
- ---> 97e8e2797f5a
+ ---> 95dcbe5c144d
 Step 5/7 : WORKDIR		/root/
  ---> Using cache
- ---> 6734c76b6834
+ ---> 3ff5ac1ee84f
 Step 6/7 : EXPOSE		80 443
  ---> Using cache
- ---> e917e6ef4ca4
+ ---> 715ec6ef0175
 Step 7/7 : ENTRYPOINT	["sh", "nginx_setup.sh"]
  ---> Using cache
- ---> cf79bbde288d
-Successfully built cf79bbde288d
-Successfully tagged nginx_img:latest
+ ---> d8bd6d2a9d13
+Successfully built d8bd6d2a9d13
+Successfully tagged nginx:latest

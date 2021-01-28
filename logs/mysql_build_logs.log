@@ -3,21 +3,21 @@ Step 1/7 : FROM		alpine:latest
  ---> 7731472c3f2a
 Step 2/7 : RUN			apk update
  ---> Using cache
- ---> 8f893639d530
+ ---> 950ece253d49
 Step 3/7 : RUN			apk add mariadb mariadb-client
  ---> Using cache
- ---> ba81c23769e8
+ ---> 1fba7d9dcd2d
 Step 4/7 : RUN			mkdir /run/mysql
  ---> Using cache
- ---> aa07a12a5096
+ ---> f6d2fcc54e3e
 Step 5/7 : COPY		srcs /root/
  ---> Using cache
- ---> 21dab3f1a518
+ ---> 9cd7583bac6b
 Step 6/7 : WORKDIR		/root/
  ---> Using cache
- ---> 81fe924bd4fe
+ ---> 67cccc70341f
 Step 7/7 : ENTRYPOINT	["sh", "mysql_setup.sh"]
  ---> Using cache
- ---> 4ccd7d8a9eee
-Successfully built 4ccd7d8a9eee
+ ---> fe027f3ad711
+Successfully built fe027f3ad711
 Successfully tagged mysql_img:latest
