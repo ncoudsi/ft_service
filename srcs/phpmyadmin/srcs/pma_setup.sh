@@ -1,7 +1,10 @@
 #!/bin/sh
 
 #Copy configuration in Nginx's directory.
-cp nginx.conf /etc/nginx/
+mv nginx.conf /etc/nginx/
+
+#Copy pma configuration in phpmyadmin directory.
+mv config.inc.php /phpmyadmin
 
 #Boot php-fpm.
 /usr/sbin/php-fpm7

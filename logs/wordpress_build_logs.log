@@ -1,32 +1,32 @@
 Sending build context to Docker daemon  7.168kB
 Step 1/10 : FROM		alpine:latest
- ---> 7731472c3f2a
+ ---> e50c909a8df2
 Step 2/10 : RUN			apk update
  ---> Using cache
- ---> 950ece253d49
+ ---> f454465dbaf6
 Step 3/10 : RUN			apk add nginx
  ---> Using cache
- ---> f0866ae069b0
+ ---> 26ad873f7690
 Step 4/10 : RUN			apk add wget
  ---> Using cache
- ---> 1c79afcf56a4
+ ---> bb27345e93ae
 Step 5/10 : RUN			apk add php7 			php7-cli 			php7-cgi 			php7-mbstring 			php7-fpm 			php7-opcache 			php7-gd 			php7-session 			php7-json 			php7-zlib 			php7-mysqli
  ---> Using cache
- ---> 0ce4c0c973fb
+ ---> 7673c69f5b74
 Step 6/10 : RUN			wget https://www.wordpress.org/latest.tar.gz 			&& tar -xf latest.tar.gz 			&& rm -rf latest.tar.gz
  ---> Using cache
- ---> ae74dc583a5a
+ ---> 65013087375c
 Step 7/10 : COPY		srcs /root
  ---> Using cache
- ---> 7e5a978e4dfb
+ ---> 57180e5d03c7
 Step 8/10 : WORKDIR		/root/
  ---> Using cache
- ---> e025b4d789dc
+ ---> aa1611fabca3
 Step 9/10 : EXPOSE		5050
  ---> Using cache
- ---> b39f9800f732
+ ---> 8c5aad586a9e
 Step 10/10 : ENTRYPOINT	["sh", "wordpress_setup.sh"]
  ---> Using cache
- ---> 333d7adffe08
-Successfully built 333d7adffe08
-Successfully tagged wordpress_img:latest
+ ---> 2465c420fdc5
+Successfully built 2465c420fdc5
+Successfully tagged wordpress:latest
