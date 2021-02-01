@@ -12,5 +12,9 @@ mv config.inc.php /phpmyadmin
 #Create nginx directory needed to boot nginx.
 mkdir /run/nginx/
 
+#Create phpmyadmin tmp directory, needed by pma, and granting rights on it.
+mkdir /phpmyadmin/tmp
+chmod 777 /phpmyadmin/tmp
+
 #Start Nginx without halting (-g option sets global directives out of .conf file).
 nginx -g "daemon off;"
