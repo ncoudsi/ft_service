@@ -1,48 +1,23 @@
-Sending build context to Docker daemon  8.192kB
+Sending build context to Docker daemon  53.76kB
 Step 1/7 : FROM		alpine:latest
  ---> e50c909a8df2
 Step 2/7 : RUN			apk update
  ---> Using cache
- ---> 05766bb919f9
+ ---> 771d41e9ecd2
 Step 3/7 : RUN			apk add mariadb mariadb-client
- ---> Running in fcd5777cf23f
-fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/main/x86_64/APKINDEX.tar.gz
-fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/community/x86_64/APKINDEX.tar.gz
-(1/16) Installing mariadb-common (10.5.8-r0)
-(2/16) Installing libaio (0.3.112-r1)
-(3/16) Installing ca-certificates (20191127-r5)
-(4/16) Installing brotli-libs (1.0.9-r3)
-(5/16) Installing nghttp2-libs (1.42.0-r1)
-(6/16) Installing libcurl (7.74.0-r0)
-(7/16) Installing libgcc (10.2.1_pre1-r3)
-(8/16) Installing xz-libs (5.2.5-r0)
-(9/16) Installing ncurses-terminfo-base (6.2_p20210109-r0)
-(10/16) Installing ncurses-libs (6.2_p20210109-r0)
-(11/16) Installing linux-pam (1.5.1-r0)
-(12/16) Installing pcre2 (10.36-r0)
-(13/16) Installing libstdc++ (10.2.1_pre1-r3)
-(14/16) Installing libxml2 (2.9.10-r6)
-(15/16) Installing mariadb (10.5.8-r0)
-Executing mariadb-10.5.8-r0.pre-install
-(16/16) Installing mariadb-client (10.5.8-r0)
-Executing busybox-1.32.1-r2.trigger
-Executing ca-certificates-20191127-r5.trigger
-OK: 178 MiB in 30 packages
-Removing intermediate container fcd5777cf23f
- ---> 25603baeda50
+ ---> Using cache
+ ---> 18bc44f49fd7
 Step 4/7 : RUN			mkdir /run/mysql
- ---> Running in 871e9ea73dc5
-Removing intermediate container 871e9ea73dc5
- ---> 4db497db019d
+ ---> Using cache
+ ---> b9bc9f5ae378
 Step 5/7 : COPY		srcs /root/
- ---> d150323ee25e
+ ---> Using cache
+ ---> 6f26454dec0f
 Step 6/7 : WORKDIR		/root/
- ---> Running in b5e20122e4f7
-Removing intermediate container b5e20122e4f7
- ---> 70abc6520dc0
+ ---> Using cache
+ ---> bc061bd999b4
 Step 7/7 : ENTRYPOINT	["sh", "mysql_setup.sh"]
- ---> Running in d55437b6d4a5
-Removing intermediate container d55437b6d4a5
- ---> 2a066c4a8dd1
-Successfully built 2a066c4a8dd1
+ ---> Using cache
+ ---> 28ad1d98ce52
+Successfully built 28ad1d98ce52
 Successfully tagged mysql:latest

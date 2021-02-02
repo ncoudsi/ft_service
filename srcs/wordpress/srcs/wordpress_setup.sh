@@ -9,6 +9,8 @@ cp nginx.conf /etc/nginx/
 #Create nginx directory needed to boot nginx.
 mkdir /run/nginx/
 
+#Move wp-config.php in wordpress directory.
+mv wp-config.php /wordpress
+
 #Start Nginx without halting (-g option sets global directives out of .conf file).
 nginx -g "daemon off;"
-
