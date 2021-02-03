@@ -5,7 +5,7 @@ FROM		alpine:latest
 RUN			apk update
 
 #Install mariadb (mysql fork).
-RUN			apk add mariadb mariadb-client
+RUN			apk add mysql mysql-client
 
 #Create mysql directori in /run.
 RUN			mkdir /run/mysql

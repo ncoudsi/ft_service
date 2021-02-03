@@ -1,15 +1,24 @@
 #!/bin/sh
 
+#Variables for colored output in the terminal.
+GREEN="\e[1;32m"
+WHITE="\e[0m"
+
 #Add $USER to the docker group (if not existing). Allow you to use docker commands without sudo.
 #WARNING : if sudo is used in a docker build command, the image cant be pulled by k8s later on,
 #due to rights on the image. It will result with a "Image can't be pulled" error and deployments won't work.
-if [ $(grep "docker" /etc/group | grep -c "$USER") = 0 ]
+if [ $(grep "docker" /etc/group | grep -c "$USER") -eq 0 ]
 then
 	sudo usermod -aG docker $USER
+	echo ${GREEN}"==Need to reboot session to apply new user to docker group.=="${WHITE}
+	echo ${GREEN}"==Need admin password to do so.=="${WHITE}
+	sudo shutdown -r now
 fi
 #Start Minikube (--driver option specifies in which VM we want to start the cluster).
-if [ $(minikube status | grep -c "Running") != 3 ]
+#Condition is here to avoid starting minikube if it is already running.
+if [ $(minikube status > logs/minikube_status.log ; grep -c "Running" logs/minikube_status.log) -ne 3 ]
 then
+	echo ${GREEN}"\t==Starting minikube.=="${WHITE}
 	minikube start --driver=docker
 	##Install MetalLB (see https://metallb.universe.tf/installation) It wont be deleted afterwards so you can apply it just once here.
 	kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml
@@ -17,10 +26,15 @@ then
 	kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 	kubectl apply -f srcs/metallb/metallb_configmap.yaml
 fi
+echo ${GREEN}"\n\t==Deleting existing K8s cluster.=="${WHITE}
 #Clean evrything that remains from previous usages.
+echo ${GREEN}"Services :"${WHITE}
 kubectl delete services --all
+echo ${GREEN}"Pods :"${WHITE}
 kubectl delete pods --all
+echo ${GREEN}"Deployments :"${WHITE}
 kubectl delete deployments --all
+echo ${GREEN}"Persistent Volume Claims :"${WHITE}
 kubectl delete pvc --all
 
 
@@ -36,10 +50,16 @@ docker build ./srcs/phpmyadmin -t phpmyadmin > logs/phpmyadmin_build_logs.log
 #Build and run the MySQL container.
 docker build ./srcs/mysql -t mysql > logs/mysql_build_logs.log
 
+echo ${GREEN}"\n\t==Creating new K8s cluster.=="${WHITE}
+echo ${GREEN}"Nginx :"${WHITE}
 kubectl apply -f srcs/nginx/srcs/nginx_deployment.yaml
+echo ${GREEN}"Wordpress :"${WHITE}
 kubectl apply -f srcs/wordpress/srcs/wordpress_deployment.yaml
+echo ${GREEN}"PhpMyAdmin :"${WHITE}
 kubectl apply -f srcs/phpmyadmin/srcs/phpmyadmin_deployment.yaml
+echo ${GREEN}"MySQL :"${WHITE}
 kubectl apply -f srcs/mysql/srcs/mysql_deployment.yaml
 
 #Start minikube Dashboard.
+echo ${GREEN}"\n\t==Starting Dashboard.=="${WHITE}
 minikube dashboard
