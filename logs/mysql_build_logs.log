@@ -11,14 +11,14 @@ Step 4/7 : RUN			mkdir /run/mysql
  ---> Using cache
  ---> bd0fc00c3eca
 Step 5/7 : COPY		srcs /root/
- ---> 7184139e13ba
+ ---> bbd526ee0fa4
 Step 6/7 : WORKDIR		/root/
- ---> Running in 0944758c6740
-Removing intermediate container 0944758c6740
- ---> 364fe1e0df53
+ ---> Running in 2608a2e59159
+Removing intermediate container 2608a2e59159
+ ---> 998650b9f509
 Step 7/7 : ENTRYPOINT	["sh", "mysql_setup.sh"]
- ---> Running in 0fb0e853d2e7
-Removing intermediate container 0fb0e853d2e7
- ---> 090c19785c1b
-Successfully built 090c19785c1b
+ ---> Running in 90e235e902c1
+Removing intermediate container 90e235e902c1
+ ---> e63b62e5dd28
+Successfully built e63b62e5dd28
 Successfully tagged mysql:latest

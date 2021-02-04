@@ -2,32 +2,37 @@
 
 #Move files to needed locations.
 mv init.sql /init.sql
-# mv my.cnf /etc/my.cnf
-rm my.cnf
+mv my.cnf /etc/my.cnf
 mkdir -p /run/mysqld
 
-sed -i 's/skip-networking/#skip-networking/g' /etc/my.cnf.d/mariadb-server.cnf
-#Install MariaDB --user specifies the login to use for running mysqld.
-#datadir specifies the path to the MariaDB data directory.
-mysql_install_db --user=root --datadir=/var/lib/mysql
+#Install MariaDB no need for options since we have them in the .cnf file.
+mysql_install_db
 
-# #Run mysqld, specifying user and --init indicates to read SQL commands
-# #from init.sql file at startup.
-/usr/bin/mysqld --user=root --datadir="/var/lib/mysql" --init-file="/init.sql" &
+#Run mysqld. Again, options are in the .cnf file.
+#Here come tricks ! Mysqld is ran in backgroud (with &) because if not,
+#its process loops and prevent other commands to be ran. So we couldn't
+#run the mysql command bellow. But when ran in background, mysqld seems
+#to corrupt the pods integrity, so we kill the process later and restart
+#it in foreground.
+mysqld &
 
-MYSQL_IS_UP=0
-# Needed since the mysql daemon have some trouble to start and will take few seconds
-while [ $MYSQL_IS_UP == 0 ]
+MYSQLD_RUNNING=0
+#Mysqld can take several seconds befor it runs. So here we check if it runs, if it does not,
+#wait 5 seconds and check again. When it finaly runs, go for the mysql command.
+while [ $MYSQLD_RUNNING -eq 0 ]
 do
 	sleep 5
-	ps aux | grep -v "grep" | grep "/usr/bin/mysqld"
-	if [ $? == 0 ]
+	ps aux | grep -v "grep" | grep "mysqld"
+	if [ $? -eq 0 ]
 	then
-		MYSQL_IS_UP=1
-		mysql --user=root --password=root wordpress < wordpress.sql
+		MYSQLD_RUNNING=1
+		#Copy all the datas from wordpress.sql in wordpress database.
+		mysql --password=root wordpress < wordpress.sql
 	fi
 done
 
+#Kill the mysqld process, to prevent pod from crashing.
 pkill mysqld
 
-/usr/bin/mysqld --user=root --datadir="/var/lib/mysql"
+#Start mysqld again, but this time in foreground.
+mysqld
