@@ -26,8 +26,9 @@ then
 	kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 	kubectl apply -f srcs/metallb/metallb_configmap.yaml
 fi
-echo ${GREEN}"\n\t==Deleting existing K8s cluster.=="${WHITE}
+
 #Clean evrything that remains from previous usages.
+echo ${GREEN}"\n\t==Deleting existing K8s cluster.=="${WHITE}
 echo ${GREEN}"Services :"${WHITE}
 kubectl delete services --all
 echo ${GREEN}"Pods :"${WHITE}
@@ -41,15 +42,18 @@ kubectl delete pvc --all
 # Set the environment variable to use local Docker (allows you to re-use the Docker daemon inside the Minikube instance).
 eval $(minikube docker-env)
 
-#Build and run the Nginx container.
+#Build the Nginx container.
 docker build ./srcs/nginx -t nginx > logs/nginx_build_logs.log
-#Build and run the Wordpress container.
+#Build the Wordpress container.
 docker build ./srcs/wordpress -t wordpress > logs/wordpress_build_logs.log
-#Build and run the phpMyAdmin container.
+#Build the phpMyAdmin container.
 docker build ./srcs/phpmyadmin -t phpmyadmin > logs/phpmyadmin_build_logs.log
-#Build and run the MySQL container.
+#Build the MySQL container.
 docker build ./srcs/mysql -t mysql > logs/mysql_build_logs.log
+#Build the ftps server container.
+docker build ./srcs/ftps -t ftps > logs/ftps_build_logs.log
 
+#Create a new cluster.
 echo ${GREEN}"\n\t==Creating new K8s cluster.=="${WHITE}
 echo ${GREEN}"Nginx :"${WHITE}
 kubectl apply -f srcs/nginx/srcs/nginx_deployment.yaml
@@ -59,6 +63,8 @@ echo ${GREEN}"PhpMyAdmin :"${WHITE}
 kubectl apply -f srcs/phpmyadmin/srcs/phpmyadmin_deployment.yaml
 echo ${GREEN}"MySQL :"${WHITE}
 kubectl apply -f srcs/mysql/srcs/mysql_deployment.yaml
+echo ${GREEN}"FTPS server :"${WHITE}
+kubectl apply -f srcs/ftps/srcs/ftps_deployment.yaml
 
 #Start minikube Dashboard.
 echo ${GREEN}"\n\t==Starting Dashboard.=="${WHITE}

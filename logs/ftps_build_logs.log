@@ -1,0 +1,25 @@
+Sending build context to Docker daemon   5.12kB
+Step 1/7 : FROM		alpine:latest
+ ---> e50c909a8df2
+Step 2/7 : RUN			apk update
+ ---> Using cache
+ ---> 948e20f60fdb
+Step 3/7 : RUN			apk add pure-ftpd --repository http://dl-3.alpinelinux.org/alpine/edge/testing/
+ ---> Using cache
+ ---> 6be1cf1af006
+Step 4/7 : COPY		srcs /root
+ ---> 0bb100cc4d88
+Step 5/7 : WORKDIR		/root/
+ ---> Running in c4eb694aaa8d
+Removing intermediate container c4eb694aaa8d
+ ---> 574080c7e1eb
+Step 6/7 : EXPOSE		21 1024
+ ---> Running in 148e07307cc5
+Removing intermediate container 148e07307cc5
+ ---> 2bbb72823ec9
+Step 7/7 : ENTRYPOINT	["sh", "ftps_setup.sh"]
+ ---> Running in 4e82217a9c0f
+Removing intermediate container 4e82217a9c0f
+ ---> 6b3ed02def7b
+Successfully built 6b3ed02def7b
+Successfully tagged ftps:latest
