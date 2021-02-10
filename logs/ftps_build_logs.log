@@ -1,4 +1,4 @@
-Sending build context to Docker daemon  4.831MB
+Sending build context to Docker daemon  6.144kB
 Step 1/10 : FROM		alpine:latest
  ---> e50c909a8df2
 Step 2/10 : RUN			apk update
@@ -17,18 +17,18 @@ Step 6/10 : RUN			wget https://download.pureftpd.org/pub/pure-ftpd/releases/pure
  ---> Using cache
  ---> 36bdbbf4110a
 Step 7/10 : COPY		srcs /root
- ---> fb6b278cf68e
+ ---> 2d4ec96deb0c
 Step 8/10 : WORKDIR		/root/
- ---> Running in 85acd39b4fd5
-Removing intermediate container 85acd39b4fd5
- ---> 020cc526a5ea
+ ---> Running in b1e1c61cb219
+Removing intermediate container b1e1c61cb219
+ ---> c557c78f678b
 Step 9/10 : EXPOSE		21 1024
- ---> Running in b56df72d8a93
-Removing intermediate container b56df72d8a93
- ---> 677169480f83
+ ---> Running in 4fb38222f8c0
+Removing intermediate container 4fb38222f8c0
+ ---> ebcaaf2bbacd
 Step 10/10 : ENTRYPOINT	["sh", "ftps_setup.sh"]
- ---> Running in 652a4b3cac8a
-Removing intermediate container 652a4b3cac8a
- ---> dc204de8c652
-Successfully built dc204de8c652
+ ---> Running in ecd524601a94
+Removing intermediate container ecd524601a94
+ ---> 9330bfd44dca
+Successfully built 9330bfd44dca
 Successfully tagged ftps:latest

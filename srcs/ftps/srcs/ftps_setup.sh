@@ -4,16 +4,17 @@
 adduser -D "admin"
 echo "admin:admin" | chpasswd
 
-# mkdir -p /etc/ssl/private
+#Create, if not exist the directory where pure-ftpd will look for ssl certificate.
+mkdir -p /etc/ssl/private
 
+#Create the key and certificate for TSL sessions.
 openssl dhparam -out /etc/ssl/private/pure-ftpd-dhparams.pem 2048
-
 openssl req -x509 -nodes -newkey rsa:2048 -sha256 \
   -keyout /etc/ssl/private/ftps.pem \
   -out /etc/ssl/private/ftps.pem \
   -subj '/C=FR/ST=PARIS/L=PARIS/O=42/CN=localhost'
 
-chmod 777 /etc/ssl/private/*.pem
+chmod 600 /etc/ssl/private/*.pem
 
 #Configure and install pure-ftpd to be TLS compatible.
 cd pure-ftpd
