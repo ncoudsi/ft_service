@@ -1,25 +1,34 @@
-Sending build context to Docker daemon   5.12kB
-Step 1/7 : FROM		alpine:latest
+Sending build context to Docker daemon  4.831MB
+Step 1/10 : FROM		alpine:latest
  ---> e50c909a8df2
-Step 2/7 : RUN			apk update
+Step 2/10 : RUN			apk update
  ---> Using cache
  ---> 948e20f60fdb
-Step 3/7 : RUN			apk add pure-ftpd --repository http://dl-3.alpinelinux.org/alpine/edge/testing/
+Step 3/10 : RUN			apk add build-base
  ---> Using cache
- ---> 6be1cf1af006
-Step 4/7 : COPY		srcs /root
- ---> 0bb100cc4d88
-Step 5/7 : WORKDIR		/root/
- ---> Running in c4eb694aaa8d
-Removing intermediate container c4eb694aaa8d
- ---> 574080c7e1eb
-Step 6/7 : EXPOSE		21 1024
- ---> Running in 148e07307cc5
-Removing intermediate container 148e07307cc5
- ---> 2bbb72823ec9
-Step 7/7 : ENTRYPOINT	["sh", "ftps_setup.sh"]
- ---> Running in 4e82217a9c0f
-Removing intermediate container 4e82217a9c0f
- ---> 6b3ed02def7b
-Successfully built 6b3ed02def7b
+ ---> 2aead8a4b1ca
+Step 4/10 : RUN			apk add openssl openssl-dev
+ ---> Using cache
+ ---> ecc04ece2fc8
+Step 5/10 : RUN			apk add wget
+ ---> Using cache
+ ---> 77bcf670d807
+Step 6/10 : RUN			wget https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.49.tar.gz; 			tar zxvf pure-ftpd-1.0.49.tar.gz; 			rm pure-ftpd-1.0.49.tar.gz; 			mv pure-ftpd-1.0.49 /root/pure-ftpd
+ ---> Using cache
+ ---> 36bdbbf4110a
+Step 7/10 : COPY		srcs /root
+ ---> fb6b278cf68e
+Step 8/10 : WORKDIR		/root/
+ ---> Running in 85acd39b4fd5
+Removing intermediate container 85acd39b4fd5
+ ---> 020cc526a5ea
+Step 9/10 : EXPOSE		21 1024
+ ---> Running in b56df72d8a93
+Removing intermediate container b56df72d8a93
+ ---> 677169480f83
+Step 10/10 : ENTRYPOINT	["sh", "ftps_setup.sh"]
+ ---> Running in 652a4b3cac8a
+Removing intermediate container 652a4b3cac8a
+ ---> dc204de8c652
+Successfully built dc204de8c652
 Successfully tagged ftps:latest
