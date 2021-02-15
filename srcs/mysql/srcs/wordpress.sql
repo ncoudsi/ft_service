@@ -110,7 +110,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (3, 'blogname', 'Ft_Services', 'yes'),
 (4, 'blogdescription', 'Un site utilisant WordPress', 'yes'),
 (5, 'users_can_register', '0', 'yes'),
-(6, 'admin_email', 'lol@mdr.xd', 'yes'),
+(6, 'admin_email', 'key@mdr.xd', 'yes'),
 (7, 'start_of_week', '1', 'yes'),
 (8, 'use_balanceTags', '0', 'yes'),
 (9, 'use_smilies', '1', 'yes'),
@@ -436,7 +436,7 @@ CREATE TABLE `wp_users` (
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
-(1, 'wordpress', '$P$B7dUn/XuIcsL5VYMcz8HGDAAqhIuhV1', 'wordpress', 'lol@mdr.xd', 'http://172.17.0.2:5050', '2021-02-02 13:02:10', '', 0, 'wordpress');
+(1, 'wordpress', '$P$B7dUn/XuIcsL5VYMcz8HGDAAqhIuhV1', 'wordpress', 'key@mdr.xd', 'http://172.17.0.2:5050', '2021-02-02 13:02:10', '', 0, 'wordpress');
 
 --
 -- Indexes for dumped tables

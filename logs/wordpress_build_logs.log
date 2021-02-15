@@ -18,15 +18,15 @@ Step 6/10 : RUN			wget https://www.wordpress.org/latest.tar.gz 			&& tar -xf lat
  ---> b26c79fe1cdc
 Step 7/10 : COPY		srcs /root
  ---> Using cache
- ---> 60ef31f267b1
+ ---> fb75f585498b
 Step 8/10 : WORKDIR		/root/
  ---> Using cache
- ---> 14ebdcf92bde
+ ---> 6a1c03c7d267
 Step 9/10 : EXPOSE		5050
  ---> Using cache
- ---> 35079e9a3165
+ ---> 4d0af7ed2275
 Step 10/10 : ENTRYPOINT	["sh", "wordpress_setup.sh"]
  ---> Using cache
- ---> 93814cfc743a
-Successfully built 93814cfc743a
+ ---> a6fcd138a2c8
+Successfully built a6fcd138a2c8
 Successfully tagged wordpress:latest

@@ -46,25 +46,33 @@ eval $(minikube docker-env)
 docker build ./srcs/nginx -t nginx > logs/nginx_build_logs.log
 #Build the Wordpress container.
 docker build ./srcs/wordpress -t wordpress > logs/wordpress_build_logs.log
-#Build the phpMyAdmin container.
+#Build the PhpMyAdmin container.
 docker build ./srcs/phpmyadmin -t phpmyadmin > logs/phpmyadmin_build_logs.log
 #Build the MySQL container.
 docker build ./srcs/mysql -t mysql > logs/mysql_build_logs.log
-#Build the ftps server container.
+#Build the FTPS server container.
 docker build ./srcs/ftps -t ftps > logs/ftps_build_logs.log
+#Build the Grafana server container.
+docker build ./srcs/grafana -t grafana > logs/grafana_build_logs.log
+#Build the influxdb server container.
+docker build ./srcs/influxdb -t influxdb > logs/influxdb_build_logs.log
 
 #Create a new cluster.
 echo ${GREEN}"\n\t==Creating new K8s cluster.=="${WHITE}
 echo ${GREEN}"Nginx :"${WHITE}
-kubectl apply -f srcs/nginx/srcs/nginx_deployment.yaml
+kubectl apply -f srcs/nginx/nginx_deployment.yaml
 echo ${GREEN}"Wordpress :"${WHITE}
-kubectl apply -f srcs/wordpress/srcs/wordpress_deployment.yaml
+kubectl apply -f srcs/wordpress/wordpress_deployment.yaml
 echo ${GREEN}"PhpMyAdmin :"${WHITE}
-kubectl apply -f srcs/phpmyadmin/srcs/phpmyadmin_deployment.yaml
+kubectl apply -f srcs/phpmyadmin/phpmyadmin_deployment.yaml
 echo ${GREEN}"MySQL :"${WHITE}
-kubectl apply -f srcs/mysql/srcs/mysql_deployment.yaml
+kubectl apply -f srcs/mysql/mysql_deployment.yaml
 echo ${GREEN}"FTPS server :"${WHITE}
-kubectl apply -f srcs/ftps/srcs/ftps_deployment.yaml
+kubectl apply -f srcs/ftps/ftps_deployment.yaml
+echo ${GREEN}"Grafana server :"${WHITE}
+kubectl apply -f srcs/grafana/grafana_deployment.yaml
+echo ${GREEN}"influxdb server :"${WHITE}
+kubectl apply -f srcs/influxdb/influxdb_deployment.yaml
 
 #Start minikube Dashboard.
 echo ${GREEN}"\n\t==Starting Dashboard.=="${WHITE}

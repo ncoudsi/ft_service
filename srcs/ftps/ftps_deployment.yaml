@@ -3,7 +3,7 @@ kind : Service
 metadata :
   name : ftps
   annotations:
-    metallb.universe.tf/allow-shared-ip: sik
+    metallb.universe.tf/allow-shared-ip: key
 spec :
   type : LoadBalancer
   selector :

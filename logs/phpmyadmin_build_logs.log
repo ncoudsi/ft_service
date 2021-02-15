@@ -15,18 +15,18 @@ Step 5/10 : RUN			apk add php7 			php7-cli 			php7-cgi 			php7-mbstring 			php7-
  ---> d7f61230c5f2
 Step 6/10 : COPY		srcs /root
  ---> Using cache
- ---> 5e42e8f0190f
+ ---> ecf663d89f67
 Step 7/10 : RUN			wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz; 			tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz; 			rm phpMyAdmin-5.0.2-all-languages.tar.gz; 			mv phpMyAdmin-5.0.2-all-languages phpmyadmin
  ---> Using cache
- ---> bb72f479313f
+ ---> ddbaadd05940
 Step 8/10 : WORKDIR		/root/
  ---> Using cache
- ---> bfb0c594108f
+ ---> 25cee2528cf5
 Step 9/10 : EXPOSE		5000
  ---> Using cache
- ---> 3af435b42cdd
+ ---> a224f1736760
 Step 10/10 : ENTRYPOINT	["sh", "pma_setup.sh"]
  ---> Using cache
- ---> 95d5e9795de4
-Successfully built 95d5e9795de4
+ ---> f4f23c0d4edc
+Successfully built f4f23c0d4edc
 Successfully tagged phpmyadmin:latest
