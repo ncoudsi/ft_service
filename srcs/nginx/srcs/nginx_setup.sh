@@ -12,4 +12,8 @@ chmod +x mkcert
 ./mkcert localhost
 
 #Start Nginx without halting (-g option sets global directives out of .conf file).
-nginx -g "daemon off;"
+# nginx -g "daemon off;"
+
+nginx
+
+tail -f /dev/null

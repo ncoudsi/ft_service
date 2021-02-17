@@ -54,8 +54,10 @@ docker build ./srcs/mysql -t mysql > logs/mysql_build_logs.log
 docker build ./srcs/ftps -t ftps > logs/ftps_build_logs.log
 #Build the Grafana server container.
 docker build ./srcs/grafana -t grafana > logs/grafana_build_logs.log
-#Build the influxdb server container.
+#Build the InfluxDB server container.
 docker build ./srcs/influxdb -t influxdb > logs/influxdb_build_logs.log
+#Build the Telegraf server container.
+docker build ./srcs/telegraf -t telegraf > logs/telegraf_build_logs.log
 
 #Create a new cluster.
 echo ${GREEN}"\n\t==Creating new K8s cluster.=="${WHITE}
@@ -73,6 +75,8 @@ echo ${GREEN}"Grafana server :"${WHITE}
 kubectl apply -f srcs/grafana/grafana_deployment.yaml
 echo ${GREEN}"influxdb server :"${WHITE}
 kubectl apply -f srcs/influxdb/influxdb_deployment.yaml
+echo ${GREEN}"telegraf server :"${WHITE}
+kubectl apply -f srcs/telegraf/telegraf_deployment.yaml
 
 #Start minikube Dashboard.
 echo ${GREEN}"\n\t==Starting Dashboard.=="${WHITE}

@@ -3,30 +3,30 @@ Step 1/10 : FROM		alpine:latest
  ---> e50c909a8df2
 Step 2/10 : RUN			apk update
  ---> Using cache
- ---> 948e20f60fdb
+ ---> cdfc6d882b16
 Step 3/10 : RUN			apk add build-base
  ---> Using cache
- ---> 2aead8a4b1ca
+ ---> 33f35ac79dbb
 Step 4/10 : RUN			apk add openssl openssl-dev
  ---> Using cache
- ---> ecc04ece2fc8
+ ---> f632193099b1
 Step 5/10 : RUN			apk add wget
  ---> Using cache
- ---> 77bcf670d807
+ ---> b1a112ec75a7
 Step 6/10 : RUN			wget https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.49.tar.gz; 			tar zxvf pure-ftpd-1.0.49.tar.gz; 			rm pure-ftpd-1.0.49.tar.gz; 			mv pure-ftpd-1.0.49 /root/pure-ftpd
  ---> Using cache
- ---> 36bdbbf4110a
+ ---> 8f143810e4f2
 Step 7/10 : COPY		srcs /root
  ---> Using cache
- ---> cba7c4794458
+ ---> 0d87925d3571
 Step 8/10 : WORKDIR		/root/
  ---> Using cache
- ---> 53c863c11247
+ ---> 05e67071731e
 Step 9/10 : EXPOSE		21 1024
  ---> Using cache
- ---> 633664d40ae6
+ ---> aa09e787f05e
 Step 10/10 : ENTRYPOINT	["sh", "ftps_setup.sh"]
  ---> Using cache
- ---> 69c7a2d7a8aa
-Successfully built 69c7a2d7a8aa
+ ---> 5c521252c58a
+Successfully built 5c521252c58a
 Successfully tagged ftps:latest
