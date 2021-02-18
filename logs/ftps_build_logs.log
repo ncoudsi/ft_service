@@ -17,18 +17,16 @@ Step 6/10 : RUN			wget https://download.pureftpd.org/pub/pure-ftpd/releases/pure
  ---> Using cache
  ---> 8f143810e4f2
 Step 7/10 : COPY		srcs /root
- ---> 4275183e3838
+ ---> Using cache
+ ---> 115a7b982813
 Step 8/10 : WORKDIR		/root/
- ---> Running in 1c9c10db0459
-Removing intermediate container 1c9c10db0459
- ---> a1e4324220ef
+ ---> Using cache
+ ---> 2ffc97a860af
 Step 9/10 : EXPOSE		21 1024
- ---> Running in 16accb3a9599
-Removing intermediate container 16accb3a9599
- ---> 779138cf4d24
+ ---> Using cache
+ ---> fe05256c6b34
 Step 10/10 : ENTRYPOINT	["sh", "ftps_setup.sh"]
- ---> Running in b28093488928
-Removing intermediate container b28093488928
- ---> 0631b27a92b1
-Successfully built 0631b27a92b1
+ ---> Using cache
+ ---> c76141610e08
+Successfully built c76141610e08
 Successfully tagged ftps:latest
