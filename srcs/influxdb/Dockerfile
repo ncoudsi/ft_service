@@ -10,5 +10,5 @@ RUN		apk add influxdb
 #Define the directory you will be in when the container boots.
 WORKDIR	/root/
 
-#Run influxd command when the container starts.
+#Run influxd command when the container boots.
 CMD		influxd

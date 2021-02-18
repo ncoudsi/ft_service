@@ -11,9 +11,10 @@ chmod +x mkcert
 ./mkcert -install
 ./mkcert localhost
 
-#Start Nginx without halting (-g option sets global directives out of .conf file).
-# nginx -g "daemon off;"
-
+#Start Nginx.
 nginx
 
+#Keep the container running. Since a countainer should
+#stop as soon as its activities are done, tail -f will keep
+#it buisy.
 tail -f /dev/null

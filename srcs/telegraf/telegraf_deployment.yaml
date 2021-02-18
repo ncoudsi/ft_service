@@ -30,19 +30,11 @@ spec:
       - name: telegraf
         image: telegraf
         imagePullPolicy: Never
-      #   volumeMounts:
-      #   - mountPath: /var/run/docker.sock
-      #     name: docker-socket
-      #     readOnly: true
-      # volumes:
-      # - name: docker-socket
-      #   hostPath:
-      #     path: /var/run/docker.sock
-      #     type: Socket
-
 
 ---
-
+#Here, we bind the telegraf-account to the cluster-admin role.
+#It allows telegraf process to have full permissions all over the cluster so it can
+#get all the metrics from every services.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
@@ -57,7 +49,9 @@ subjects:
   namespace: default
 
 ---
-
+#A service account is an identifier for a process in a cluster. Here, we identify the telegraf
+#process as telegraf-account. Then we can bin this process to a cluster role to give it special
+#privileges accross the cluster.
 apiVersion: v1
 kind: ServiceAccount
 metadata:

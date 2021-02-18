@@ -1,23 +1,26 @@
-Sending build context to Docker daemon   7.68kB
-Step 1/7 : FROM		alpine
+Sending build context to Docker daemon  9.216kB
+Step 1/8 : FROM		alpine
  ---> e50c909a8df2
-Step 2/7 : RUN			apk add wget
+Step 2/8 : RUN			apk update
  ---> Using cache
- ---> 813efb450df7
-Step 3/7 : RUN			apk add libc6-compat
+ ---> cdfc6d882b16
+Step 3/8 : RUN			apk add wget
  ---> Using cache
- ---> 639c0a80e1e8
-Step 4/7 : RUN			wget https://dl.influxdata.com/telegraf/releases/telegraf-1.14.0-static_linux_amd64.tar.gz ; 			tar xf telegraf-1.14.0-static_linux_amd64.tar.gz ; 			rm telegraf-1.14.0-static_linux_amd64.tar.gz;
+ ---> 9dd5eecd4c8a
+Step 4/8 : RUN			apk add libc6-compat
  ---> Using cache
- ---> d01162152a62
-Step 5/7 : COPY		srcs /root/
+ ---> fdb74b3c2a52
+Step 5/8 : RUN			wget https://dl.influxdata.com/telegraf/releases/telegraf-1.14.0-static_linux_amd64.tar.gz ; 			tar xf telegraf-1.14.0-static_linux_amd64.tar.gz ; 			rm telegraf-1.14.0-static_linux_amd64.tar.gz;
  ---> Using cache
- ---> b5a74966bab1
-Step 6/7 : WORKDIR		/root/
+ ---> 52b8ccaaae10
+Step 6/8 : COPY		srcs /root/
  ---> Using cache
- ---> c61f18cc461b
-Step 7/7 : ENTRYPOINT	["sh", "telegraf_setup.sh"]
+ ---> 742a7ed5cddd
+Step 7/8 : WORKDIR		/root/
  ---> Using cache
- ---> fa574e0875ee
-Successfully built fa574e0875ee
+ ---> aa1b527274ec
+Step 8/8 : ENTRYPOINT	["sh", "telegraf_setup.sh"]
+ ---> Using cache
+ ---> a2b35c6fcf99
+Successfully built a2b35c6fcf99
 Successfully tagged telegraf:latest

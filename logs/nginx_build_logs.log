@@ -8,18 +8,16 @@ Step 3/7 : RUN			apk add nginx
  ---> Using cache
  ---> 8da770f5ce4a
 Step 4/7 : COPY		srcs /root
- ---> 2ca756c51358
+ ---> Using cache
+ ---> e4b9cb33f9da
 Step 5/7 : WORKDIR		/root/
- ---> Running in 7d3378e43f45
-Removing intermediate container 7d3378e43f45
- ---> a58c81459091
+ ---> Using cache
+ ---> c933c18a8909
 Step 6/7 : EXPOSE		80 443
- ---> Running in a7a4b7a9d769
-Removing intermediate container a7a4b7a9d769
- ---> 4f4bda21a06e
+ ---> Using cache
+ ---> 81cbc7abbd49
 Step 7/7 : ENTRYPOINT	["sh", "nginx_setup.sh"]
- ---> Running in ce8ed8795fe9
-Removing intermediate container ce8ed8795fe9
- ---> a0c097502e5b
-Successfully built a0c097502e5b
+ ---> Using cache
+ ---> d020d1eb991b
+Successfully built d020d1eb991b
 Successfully tagged nginx:latest

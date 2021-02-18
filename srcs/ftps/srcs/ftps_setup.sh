@@ -21,7 +21,11 @@ cd pure-ftpd
 ./configure --with-tls ...
 make install-strip
 
-#Run pure-ftpd
+#Run pure-ftpd in background. For some reasons, if it runs in
+#foreground, telegraf stops getting metrics from ftps-container.
 #-p : use only this port range for passive mode.
 #-P : force the specified IP.
-pure-ftpd -p 1024:1024 -P 172.17.0.2
+pure-ftpd -p 1024:1024 -P 172.17.0.2 &
+
+#Keep the container running since pure-ftpd is in background.
+tail -f /dev/null
