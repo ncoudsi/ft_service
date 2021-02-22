@@ -1,17 +1,17 @@
 Sending build context to Docker daemon  3.584kB
 Step 1/5 : FROM	alpine:latest
- ---> e50c909a8df2
+ ---> 28f6e2705743
 Step 2/5 : RUN		apk update
  ---> Using cache
- ---> cdfc6d882b16
+ ---> d84628e815f1
 Step 3/5 : RUN		apk add influxdb
  ---> Using cache
- ---> e3ce9a0c79f6
+ ---> 87bfb42db7ec
 Step 4/5 : WORKDIR	/root/
  ---> Using cache
- ---> ae8824fec4fa
+ ---> b3964e6be007
 Step 5/5 : CMD		influxd
  ---> Using cache
- ---> 408bc81d1656
-Successfully built 408bc81d1656
+ ---> bc53c09c13a4
+Successfully built bc53c09c13a4
 Successfully tagged influxdb:latest

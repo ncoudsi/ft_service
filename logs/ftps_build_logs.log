@@ -1,32 +1,32 @@
 Sending build context to Docker daemon  6.144kB
 Step 1/10 : FROM		alpine:latest
- ---> e50c909a8df2
+ ---> 28f6e2705743
 Step 2/10 : RUN			apk update
  ---> Using cache
- ---> cdfc6d882b16
+ ---> d84628e815f1
 Step 3/10 : RUN			apk add build-base
  ---> Using cache
- ---> 33f35ac79dbb
+ ---> ee942f297448
 Step 4/10 : RUN			apk add openssl openssl-dev
  ---> Using cache
- ---> f632193099b1
+ ---> c85584aaecb1
 Step 5/10 : RUN			apk add wget
  ---> Using cache
- ---> b1a112ec75a7
+ ---> 4c1d2786d249
 Step 6/10 : RUN			wget https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.49.tar.gz; 			tar zxvf pure-ftpd-1.0.49.tar.gz; 			rm pure-ftpd-1.0.49.tar.gz; 			mv pure-ftpd-1.0.49 /root/pure-ftpd
  ---> Using cache
- ---> 8f143810e4f2
+ ---> b4b3edd564aa
 Step 7/10 : COPY		srcs /root
  ---> Using cache
- ---> 115a7b982813
+ ---> 0fef8af3714b
 Step 8/10 : WORKDIR		/root/
  ---> Using cache
- ---> 2ffc97a860af
+ ---> 23f9cfee82ee
 Step 9/10 : EXPOSE		21 1024
  ---> Using cache
- ---> fe05256c6b34
+ ---> 245c52962a56
 Step 10/10 : ENTRYPOINT	["sh", "ftps_setup.sh"]
  ---> Using cache
- ---> c76141610e08
-Successfully built c76141610e08
+ ---> 88fd1306e022
+Successfully built 88fd1306e022
 Successfully tagged ftps:latest

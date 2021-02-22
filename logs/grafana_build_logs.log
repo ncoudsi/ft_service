@@ -1,29 +1,29 @@
 Sending build context to Docker daemon  620.5kB
 Step 1/9 : FROM		alpine:latest
- ---> e50c909a8df2
+ ---> 28f6e2705743
 Step 2/9 : RUN			apk update
  ---> Using cache
- ---> cdfc6d882b16
+ ---> d84628e815f1
 Step 3/9 : RUN			apk add wget
  ---> Using cache
- ---> 9dd5eecd4c8a
+ ---> 2c73c55c1f94
 Step 4/9 : RUN			apk add libc6-compat
  ---> Using cache
- ---> fdb74b3c2a52
+ ---> 4fbc46e82611
 Step 5/9 : RUN			wget https://dl.grafana.com/oss/release/grafana-7.4.1.linux-amd64.tar.gz ;			tar zxvf grafana-7.4.1.linux-amd64.tar.gz; 			rm grafana-7.4.1.linux-amd64.tar.gz; 			mv grafana-7.4.1 /root/grafana
  ---> Using cache
- ---> 034696fe4b96
+ ---> 34a8ed031933
 Step 6/9 : COPY		srcs /root
  ---> Using cache
- ---> 130630861073
+ ---> 7a57a0320c49
 Step 7/9 : WORKDIR		/root/
  ---> Using cache
- ---> 2621bca7b9e0
+ ---> 04724143598f
 Step 8/9 : EXPOSE		3000
  ---> Using cache
- ---> e5e923ad9c51
+ ---> 3de341b34e50
 Step 9/9 : ENTRYPOINT	["sh", "grafana_setup.sh"]
  ---> Using cache
- ---> 5f457f07c63a
-Successfully built 5f457f07c63a
+ ---> 4fe7225a3278
+Successfully built 4fe7225a3278
 Successfully tagged grafana:latest

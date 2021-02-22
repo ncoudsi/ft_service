@@ -1,32 +1,32 @@
 Sending build context to Docker daemon  9.216kB
 Step 1/10 : FROM		alpine:latest
- ---> e50c909a8df2
+ ---> 28f6e2705743
 Step 2/10 : RUN			apk update
  ---> Using cache
- ---> cdfc6d882b16
+ ---> d84628e815f1
 Step 3/10 : RUN			apk add nginx
  ---> Using cache
- ---> 8da770f5ce4a
+ ---> 2b98a845396d
 Step 4/10 : RUN			apk add wget
  ---> Using cache
- ---> ee9ea336efc1
+ ---> fc5d404fca42
 Step 5/10 : RUN			apk add php7 			php7-cli 			php7-cgi 			php7-mbstring 			php7-fpm 			php7-mysqli 			php7-common 			php7-iconv 			php7-json 			php7-opcache 			php7-zlib 			php7-session 			php7-gd 			php7-curl 			php7-xml 			php7-imap 			fcgi 			php7-pdo 			php7-pdo_mysql 			php7-soap 			php7-xmlrpc 			php7-posix 			php7-mcrypt 			php7-gettext			php7-ldap 			php7-ctype 			php7-dom
  ---> Using cache
- ---> 5ca0880ea65d
+ ---> 0e5e18e276bf
 Step 6/10 : COPY		srcs /root
  ---> Using cache
- ---> c84b4d286dc0
+ ---> a45a62a58dfd
 Step 7/10 : RUN			wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz; 			tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz; 			rm phpMyAdmin-5.0.2-all-languages.tar.gz; 			mv phpMyAdmin-5.0.2-all-languages phpmyadmin
  ---> Using cache
- ---> 8317c0ec31e9
+ ---> b8422fe86cbf
 Step 8/10 : WORKDIR		/root/
  ---> Using cache
- ---> 1956a7ce424c
+ ---> 3ada5ba097ce
 Step 9/10 : EXPOSE		5000
  ---> Using cache
- ---> 6faa452f5518
+ ---> 5aefce49a38e
 Step 10/10 : ENTRYPOINT	["sh", "pma_setup.sh"]
  ---> Using cache
- ---> dac8664f0cdf
-Successfully built dac8664f0cdf
+ ---> 2e1c7ef8a862
+Successfully built 2e1c7ef8a862
 Successfully tagged phpmyadmin:latest

@@ -7,6 +7,9 @@ RUN			apk update
 #Install Nginx.
 RUN			apk add nginx
 
+#Install OpenSSL
+RUN			apk add openssl
+
 #Copy all files from srcs (in the computer) in /root (in the container).
 COPY		srcs /root
 
