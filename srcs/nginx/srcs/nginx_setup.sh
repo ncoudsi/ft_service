@@ -19,10 +19,10 @@ nginx
 IS_RUNNING=0
 while [ $IS_RUNNING -eq 0 ]
 do
+    sleep 5
     ps aux | grep -v "grep" | grep "nginx" | grep -v "nginx_setup.sh"
     if [ $? -ne 0 ]
     then
         IS_RUNNING=1
     fi
-    sleep 5
 done

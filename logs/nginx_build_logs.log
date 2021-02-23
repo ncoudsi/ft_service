@@ -11,18 +11,18 @@ Step 4/8 : RUN			apk add openssl
  ---> Using cache
  ---> 5261de253042
 Step 5/8 : COPY		srcs /root
- ---> c76a09fb78d2
+ ---> b95be256fa99
 Step 6/8 : WORKDIR		/root/
- ---> Running in 57fbb3e7c0d8
-Removing intermediate container 57fbb3e7c0d8
- ---> 419084d3551e
+ ---> Running in 45a5447982c6
+Removing intermediate container 45a5447982c6
+ ---> c57191525a19
 Step 7/8 : EXPOSE		80 443
- ---> Running in 7c262b0991db
-Removing intermediate container 7c262b0991db
- ---> 1fc3477e03ac
+ ---> Running in 42cf4ac1f4b5
+Removing intermediate container 42cf4ac1f4b5
+ ---> 90dffa1c680d
 Step 8/8 : ENTRYPOINT	["sh", "nginx_setup.sh"]
- ---> Running in d09f4de2a094
-Removing intermediate container d09f4de2a094
- ---> b8a43c9df7df
-Successfully built b8a43c9df7df
+ ---> Running in 5506e54f0b85
+Removing intermediate container 5506e54f0b85
+ ---> d2452c807beb
+Successfully built d2452c807beb
 Successfully tagged nginx:latest
