@@ -3,30 +3,30 @@ Step 1/10 : FROM		alpine:latest
  ---> 28f6e2705743
 Step 2/10 : RUN			apk update
  ---> Using cache
- ---> d84628e815f1
+ ---> b2c83cca495f
 Step 3/10 : RUN			apk add nginx
  ---> Using cache
- ---> 2b98a845396d
+ ---> 9ae02a4697af
 Step 4/10 : RUN			apk add wget
  ---> Using cache
- ---> fc5d404fca42
+ ---> acc2b766d8ba
 Step 5/10 : RUN			apk add php7 			php7-cli 			php7-cgi 			php7-mbstring 			php7-fpm 			php7-mysqli 			php7-common 			php7-iconv 			php7-json 			php7-opcache 			php7-zlib 			php7-session 			php7-gd 			php7-curl 			php7-xml 			php7-imap 			fcgi 			php7-pdo 			php7-pdo_mysql 			php7-soap 			php7-xmlrpc 			php7-posix 			php7-mcrypt 			php7-gettext			php7-ldap 			php7-ctype 			php7-dom
  ---> Using cache
- ---> 0e5e18e276bf
+ ---> 31da61132c5e
 Step 6/10 : COPY		srcs /root
  ---> Using cache
- ---> a45a62a58dfd
+ ---> e47dd1d1a7b0
 Step 7/10 : RUN			wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz; 			tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz; 			rm phpMyAdmin-5.0.2-all-languages.tar.gz; 			mv phpMyAdmin-5.0.2-all-languages phpmyadmin
  ---> Using cache
- ---> b8422fe86cbf
+ ---> 84cfdadd887e
 Step 8/10 : WORKDIR		/root/
  ---> Using cache
- ---> 3ada5ba097ce
+ ---> 00c32f932412
 Step 9/10 : EXPOSE		5000
  ---> Using cache
- ---> 5aefce49a38e
+ ---> 29377685ed27
 Step 10/10 : ENTRYPOINT	["sh", "pma_setup.sh"]
  ---> Using cache
- ---> 2e1c7ef8a862
-Successfully built 2e1c7ef8a862
+ ---> 08094c7155c0
+Successfully built 08094c7155c0
 Successfully tagged phpmyadmin:latest

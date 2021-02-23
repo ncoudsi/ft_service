@@ -1,32 +1,29 @@
-Sending build context to Docker daemon  6.144kB
-Step 1/10 : FROM		alpine:latest
+Sending build context to Docker daemon  6.656kB
+Step 1/9 : FROM		alpine:latest
  ---> 28f6e2705743
-Step 2/10 : RUN			apk update
+Step 2/9 : RUN			apk update
  ---> Using cache
- ---> d84628e815f1
-Step 3/10 : RUN			apk add build-base
+ ---> b2c83cca495f
+Step 3/9 : RUN			apk add build-base
  ---> Using cache
- ---> ee942f297448
-Step 4/10 : RUN			apk add openssl openssl-dev
+ ---> facf6ced9889
+Step 4/9 : RUN			apk add openssl openssl-dev
  ---> Using cache
- ---> c85584aaecb1
-Step 5/10 : RUN			apk add wget
+ ---> 9dc8b9ecd504
+Step 5/9 : RUN			apk add pure-ftpd --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache
  ---> Using cache
- ---> 4c1d2786d249
-Step 6/10 : RUN			wget https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.49.tar.gz; 			tar zxvf pure-ftpd-1.0.49.tar.gz; 			rm pure-ftpd-1.0.49.tar.gz; 			mv pure-ftpd-1.0.49 /root/pure-ftpd
+ ---> 74ed039142b6
+Step 6/9 : COPY		srcs /root
  ---> Using cache
- ---> b4b3edd564aa
-Step 7/10 : COPY		srcs /root
+ ---> 859e72d09fd2
+Step 7/9 : WORKDIR		/root/
  ---> Using cache
- ---> 0fef8af3714b
-Step 8/10 : WORKDIR		/root/
+ ---> b9ee2e594441
+Step 8/9 : EXPOSE		21 1024
  ---> Using cache
- ---> 23f9cfee82ee
-Step 9/10 : EXPOSE		21 1024
+ ---> 706c2dd36e07
+Step 9/9 : ENTRYPOINT	["sh", "ftps_setup.sh"]
  ---> Using cache
- ---> 245c52962a56
-Step 10/10 : ENTRYPOINT	["sh", "ftps_setup.sh"]
- ---> Using cache
- ---> 88fd1306e022
-Successfully built 88fd1306e022
+ ---> 9cf8bb61a457
+Successfully built 9cf8bb61a457
 Successfully tagged ftps:latest

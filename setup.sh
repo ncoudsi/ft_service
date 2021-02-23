@@ -27,6 +27,16 @@ then
 	kubectl apply -f srcs/metallb/metallb_configmap.yaml
 fi
 
+#Install requirements for pure-ftpd.
+echo ${GREEN}"\n\t==Installing lftp.=="${WHITE}
+echo "user42" | sudo -S apt install lftp
+echo "user42" | sudo chmod 777 /etc/lftp.conf
+grep "set ssl:verify-certificate no" /etc/lftp.conf
+if [ $? -ne 0 ]
+then
+	echo "set ssl:verify-certificate no" >> /etc/lftp.conf
+fi
+
 #Clean evrything that remains from previous usages.
 echo ${GREEN}"\n\t==Deleting existing K8s cluster.=="${WHITE}
 echo ${GREEN}"Services :"${WHITE}
@@ -38,25 +48,17 @@ kubectl delete deployments --all
 echo ${GREEN}"Persistent Volume Claims :"${WHITE}
 kubectl delete pvc --all
 
-
-# Set the environment variable to use local Docker (allows you to re-use the Docker daemon inside the Minikube instance).
+#Set the environment variable to use local Docker (allows you to re-use the Docker daemon inside the Minikube instance).
 eval $(minikube docker-env)
 
-#Build the Nginx container.
+#Build containers.
 docker build ./srcs/nginx -t nginx > logs/nginx_build_logs.log
-#Build the Wordpress container.
 docker build ./srcs/wordpress -t wordpress > logs/wordpress_build_logs.log
-#Build the PhpMyAdmin container.
 docker build ./srcs/phpmyadmin -t phpmyadmin > logs/phpmyadmin_build_logs.log
-#Build the MySQL container.
 docker build ./srcs/mysql -t mysql > logs/mysql_build_logs.log
-#Build the FTPS server container.
 docker build ./srcs/ftps -t ftps > logs/ftps_build_logs.log
-#Build the Grafana server container.
 docker build ./srcs/grafana -t grafana > logs/grafana_build_logs.log
-#Build the InfluxDB server container.
 docker build ./srcs/influxdb -t influxdb > logs/influxdb_build_logs.log
-#Build the Telegraf server container.
 docker build ./srcs/telegraf -t telegraf > logs/telegraf_build_logs.log
 
 #Create a new cluster.

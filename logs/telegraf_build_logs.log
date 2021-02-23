@@ -3,24 +3,24 @@ Step 1/8 : FROM		alpine
  ---> 28f6e2705743
 Step 2/8 : RUN			apk update
  ---> Using cache
- ---> d84628e815f1
+ ---> b2c83cca495f
 Step 3/8 : RUN			apk add wget
  ---> Using cache
- ---> 2c73c55c1f94
+ ---> 3e7d70cf32fd
 Step 4/8 : RUN			apk add libc6-compat
  ---> Using cache
- ---> 4fbc46e82611
+ ---> 9b14bf1f886a
 Step 5/8 : RUN			wget https://dl.influxdata.com/telegraf/releases/telegraf-1.14.0-static_linux_amd64.tar.gz ; 			tar xf telegraf-1.14.0-static_linux_amd64.tar.gz ; 			rm telegraf-1.14.0-static_linux_amd64.tar.gz;
  ---> Using cache
- ---> 7ecfd74a8874
+ ---> 3762e7d9ead2
 Step 6/8 : COPY		srcs /root/
  ---> Using cache
- ---> 6d6683676b50
+ ---> c67c9239a05f
 Step 7/8 : WORKDIR		/root/
  ---> Using cache
- ---> 11b29c7aa5df
+ ---> c162a48ab579
 Step 8/8 : ENTRYPOINT	["sh", "telegraf_setup.sh"]
  ---> Using cache
- ---> be14593d04a4
-Successfully built be14593d04a4
+ ---> 8362c1ee7938
+Successfully built 8362c1ee7938
 Successfully tagged telegraf:latest

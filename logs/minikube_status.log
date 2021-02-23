@@ -1,6 +1,6 @@
 m01
-host: Running
-kubelet: Running
-apiserver: Running
-kubeconfig: Configured
+host: Stopped
+kubelet: Stopped
+apiserver: Stopped
+kubeconfig: Stopped
 

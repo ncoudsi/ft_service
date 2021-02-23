@@ -3,27 +3,27 @@ Step 1/9 : FROM		alpine:latest
  ---> 28f6e2705743
 Step 2/9 : RUN			apk update
  ---> Using cache
- ---> d84628e815f1
+ ---> b2c83cca495f
 Step 3/9 : RUN			apk add wget
  ---> Using cache
- ---> 2c73c55c1f94
+ ---> 3e7d70cf32fd
 Step 4/9 : RUN			apk add libc6-compat
  ---> Using cache
- ---> 4fbc46e82611
+ ---> 9b14bf1f886a
 Step 5/9 : RUN			wget https://dl.grafana.com/oss/release/grafana-7.4.1.linux-amd64.tar.gz ;			tar zxvf grafana-7.4.1.linux-amd64.tar.gz; 			rm grafana-7.4.1.linux-amd64.tar.gz; 			mv grafana-7.4.1 /root/grafana
  ---> Using cache
- ---> 34a8ed031933
+ ---> ead3f0ed8a34
 Step 6/9 : COPY		srcs /root
  ---> Using cache
- ---> 7a57a0320c49
+ ---> 7f89ccecc515
 Step 7/9 : WORKDIR		/root/
  ---> Using cache
- ---> 04724143598f
+ ---> 4f7663180d9a
 Step 8/9 : EXPOSE		3000
  ---> Using cache
- ---> 3de341b34e50
+ ---> ab2526e43584
 Step 9/9 : ENTRYPOINT	["sh", "grafana_setup.sh"]
  ---> Using cache
- ---> 4fe7225a3278
-Successfully built 4fe7225a3278
+ ---> 84dec25e0e10
+Successfully built 84dec25e0e10
 Successfully tagged grafana:latest
