@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: telegraf
+  name: telegraf-service
   labels:
     name: telegraf
 spec:
@@ -14,7 +14,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: telegraf-deployment
+  name: telegraf
 spec:
   selector:
     matchLabels:

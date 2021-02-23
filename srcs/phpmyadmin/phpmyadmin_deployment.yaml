@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     metallb.universe.tf/allow-shared-ip: key
-  name: phpmyadmin
+  name: phpmyadmin-service
 spec:
   type: LoadBalancer
   selector:
@@ -18,7 +18,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: phpmyadmin-deployment
+  name: phpmyadmin
   labels:
     app: phpmyadmin
 spec:

@@ -11,4 +11,4 @@ RUN		apk add influxdb
 WORKDIR	/root/
 
 #Run influxd command when the container boots.
-CMD		influxd
+CMD		influxd run -config /etc/influxdb.conf

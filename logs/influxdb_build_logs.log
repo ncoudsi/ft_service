@@ -3,15 +3,15 @@ Step 1/5 : FROM	alpine:latest
  ---> 28f6e2705743
 Step 2/5 : RUN		apk update
  ---> Using cache
- ---> 684da28a2731
+ ---> cebd9a5c078f
 Step 3/5 : RUN		apk add influxdb
  ---> Using cache
- ---> 87e0123bbf8e
+ ---> dcadac20c38c
 Step 4/5 : WORKDIR	/root/
  ---> Using cache
- ---> ed7f99727f56
-Step 5/5 : CMD		influxd
+ ---> 6c3056022c72
+Step 5/5 : CMD		influxd run -config /etc/influxdb.conf
  ---> Using cache
- ---> 02044165a020
-Successfully built 02044165a020
+ ---> a041347b80f6
+Successfully built a041347b80f6
 Successfully tagged influxdb:latest

@@ -11,7 +11,7 @@ $cfg['Servers'][1] =
 	#Other possible values (see : https://docs.phpmyadmin.net/en/latest/config.html).
     'auth_type' => 'config',
 	#Hostname or IP address of the MySQL server.
-    'host' => 'mysql',
+    'host' => 'mysql-service',
     #3306 is default value. Define the port of your MySQL server.
 	'port' => 3306,
 	#False is default value. Prevent from someone connecting as 'root' without password.

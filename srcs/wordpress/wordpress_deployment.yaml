@@ -3,7 +3,7 @@ kind: Service
 metadata:
   annotations:
     metallb.universe.tf/allow-shared-ip: key
-  name: wordpress
+  name: wordpress-service
 spec:
   type: LoadBalancer
   selector:
@@ -18,7 +18,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress-deployment
+  name: wordpress
   labels:
     app: wordpress
 spec:
