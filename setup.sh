@@ -9,9 +9,9 @@ WHITE="\e[0m"
 #due to rights on the image. It will result with a "Image can't be pulled" error and deployments won't work.
 if [ $(grep "docker" /etc/group | grep -c "$USER") -eq 0 ]
 then
-	sudo usermod -aG docker $USER
 	echo ${GREEN}"==Need to reboot session to apply new user to docker group.=="${WHITE}
 	echo ${GREEN}"==Need admin password to do so.=="${WHITE}
+	sudo usermod -aG docker $USER
 	sudo shutdown -r now
 fi
 #Start Minikube (--driver option specifies in which VM we want to start the cluster).
