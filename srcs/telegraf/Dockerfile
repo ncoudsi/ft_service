@@ -1,5 +1,5 @@
 #Define Alpine Linux as the container's OS
-FROM		alpine
+FROM		alpine:latest
 
 #Update server.
 RUN			apk update

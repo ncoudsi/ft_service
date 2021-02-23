@@ -3,27 +3,27 @@ Step 1/9 : FROM		alpine:latest
  ---> 28f6e2705743
 Step 2/9 : RUN			apk update
  ---> Using cache
- ---> b2c83cca495f
+ ---> 684da28a2731
 Step 3/9 : RUN			apk add build-base
  ---> Using cache
- ---> facf6ced9889
+ ---> e77a7ffb96b7
 Step 4/9 : RUN			apk add openssl openssl-dev
  ---> Using cache
- ---> 9dc8b9ecd504
+ ---> 91b58ec548be
 Step 5/9 : RUN			apk add pure-ftpd --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted --no-cache
  ---> Using cache
- ---> 74ed039142b6
+ ---> 5375b3fbd059
 Step 6/9 : COPY		srcs /root
  ---> Using cache
- ---> 859e72d09fd2
+ ---> 82f73704b250
 Step 7/9 : WORKDIR		/root/
  ---> Using cache
- ---> b9ee2e594441
+ ---> 0c045f751e67
 Step 8/9 : EXPOSE		21 1024
  ---> Using cache
- ---> 706c2dd36e07
+ ---> 3ace21c90304
 Step 9/9 : ENTRYPOINT	["sh", "ftps_setup.sh"]
  ---> Using cache
- ---> 9cf8bb61a457
-Successfully built 9cf8bb61a457
+ ---> 631bce755b3c
+Successfully built 631bce755b3c
 Successfully tagged ftps:latest

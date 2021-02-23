@@ -14,7 +14,15 @@ chmod +x mkcert
 #Start Nginx.
 nginx
 
-#Keep the container running. Since a countainer should
-#stop as soon as its activities are done, tail -f will keep
-#it buisy.
-tail -f /dev/null
+#Check if nginx is still running, if not, end the script to
+#restart the container.
+IS_RUNNING=0
+while [ $IS_RUNNING -eq 0 ]
+do
+    ps aux | grep -v "grep" | grep "nginx" | grep -v "nginx_setup.sh"
+    if [ $? -ne 0 ]
+    then
+        IS_RUNNING=1
+    fi
+    sleep 5
+done

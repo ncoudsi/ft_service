@@ -1,26 +1,26 @@
 Sending build context to Docker daemon  9.216kB
-Step 1/8 : FROM		alpine
+Step 1/8 : FROM		alpine:latest
  ---> 28f6e2705743
 Step 2/8 : RUN			apk update
  ---> Using cache
- ---> b2c83cca495f
+ ---> 684da28a2731
 Step 3/8 : RUN			apk add wget
  ---> Using cache
- ---> 3e7d70cf32fd
+ ---> 9bde76354623
 Step 4/8 : RUN			apk add libc6-compat
  ---> Using cache
- ---> 9b14bf1f886a
+ ---> 6224d96e7c2f
 Step 5/8 : RUN			wget https://dl.influxdata.com/telegraf/releases/telegraf-1.14.0-static_linux_amd64.tar.gz ; 			tar xf telegraf-1.14.0-static_linux_amd64.tar.gz ; 			rm telegraf-1.14.0-static_linux_amd64.tar.gz;
  ---> Using cache
- ---> 3762e7d9ead2
+ ---> fad0b2f6c893
 Step 6/8 : COPY		srcs /root/
  ---> Using cache
- ---> c67c9239a05f
+ ---> 4d52110bd1b1
 Step 7/8 : WORKDIR		/root/
  ---> Using cache
- ---> c162a48ab579
+ ---> 5a5635dae005
 Step 8/8 : ENTRYPOINT	["sh", "telegraf_setup.sh"]
  ---> Using cache
- ---> 8362c1ee7938
-Successfully built 8362c1ee7938
+ ---> 097f2641f988
+Successfully built 097f2641f988
 Successfully tagged telegraf:latest

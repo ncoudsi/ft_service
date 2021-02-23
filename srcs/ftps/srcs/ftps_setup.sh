@@ -30,5 +30,15 @@ echo "admin:admin" | chpasswd
 #-j : create home directory if needed.
 pure-ftpd -j -Y 2 -p 1024:1024 -P 172.17.0.2 &
 
-#Keep the container running since pure-ftpd is in background.
-tail -f /dev/null
+#Check if pure-ftpd is still running, if not, end the script to
+#restart the container.
+IS_RUNNING=0
+while [ $IS_RUNNING -eq 0 ]
+do
+    ps aux | grep -v "grep" | grep "pure-ftpd"
+    if [ $? -ne 0 ]
+    then
+        IS_RUNNING=1
+    fi
+    sleep 5
+done
