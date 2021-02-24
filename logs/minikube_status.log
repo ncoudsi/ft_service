@@ -1,6 +1,0 @@
-m01
-host: Running
-kubelet: Running
-apiserver: Running
-kubeconfig: Configured
-

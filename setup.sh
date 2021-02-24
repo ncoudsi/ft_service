@@ -4,6 +4,19 @@
 GREEN="\e[1;32m"
 WHITE="\e[0m"
 
+#Creating logs repository if not exists.
+mkdir -p logs
+
+#Install requirements for pure-ftpd.
+echo ${GREEN}"\n\t==Installing lftp.=="${WHITE}
+echo "user42" | sudo -S apt install lftp
+echo "user42" | sudo chmod 777 /etc/lftp.conf
+grep "set ssl:verify-certificate no" /etc/lftp.conf
+if [ $? -ne 0 ]
+then
+	echo "set ssl:verify-certificate no" >> /etc/lftp.conf
+fi
+
 #Add $USER to the docker group (if not existing). Allow you to use docker commands without sudo.
 #WARNING : if sudo is used in a docker build command, the image cant be pulled by k8s later on,
 #due to rights on the image. It will result with a "Image can't be pulled" error and deployments won't work.
@@ -14,6 +27,7 @@ then
 	sudo usermod -aG docker $USER
 	sudo shutdown -r now
 fi
+
 #Start Minikube (--driver option specifies in which VM we want to start the cluster).
 #Condition is here to avoid starting minikube if it is already running.
 if [ $(minikube status > logs/minikube_status.log ; grep -c "Running" logs/minikube_status.log) -ne 3 ]
@@ -25,16 +39,6 @@ then
 	kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml
 	kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 	kubectl apply -f srcs/metallb/metallb_configmap.yaml
-fi
-
-#Install requirements for pure-ftpd.
-echo ${GREEN}"\n\t==Installing lftp.=="${WHITE}
-echo "user42" | sudo -S apt install lftp
-echo "user42" | sudo chmod 777 /etc/lftp.conf
-grep "set ssl:verify-certificate no" /etc/lftp.conf
-if [ $? -ne 0 ]
-then
-	echo "set ssl:verify-certificate no" >> /etc/lftp.conf
 fi
 
 #Clean evrything that remains from previous usages.
