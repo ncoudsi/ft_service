@@ -4,9 +4,6 @@
 GREEN="\e[1;32m"
 WHITE="\e[0m"
 
-#Creating logs repository if not exists.
-mkdir -p logs
-
 #Install requirements for pure-ftpd.
 echo ${GREEN}"\n\t==Installing lftp.=="${WHITE}
 echo "user42" | sudo -S apt install lftp
@@ -27,6 +24,9 @@ then
 	sudo usermod -aG docker $USER
 	sudo shutdown -r now
 fi
+
+#Creating logs repository if it does not exist.
+mkdir -p logs
 
 #Start Minikube (--driver option specifies in which VM we want to start the cluster).
 #Condition is here to avoid starting minikube if it is already running.
