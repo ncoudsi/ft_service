@@ -4,16 +4,6 @@
 GREEN="\e[1;32m"
 WHITE="\e[0m"
 
-#Install requirements for pure-ftpd.
-echo ${GREEN}"\n\t==Installing lftp.=="${WHITE}
-echo "user42" | sudo -S apt install lftp
-echo "user42" | sudo chmod 777 /etc/lftp.conf
-grep "set ssl:verify-certificate no" /etc/lftp.conf
-if [ $? -ne 0 ]
-then
-	echo "set ssl:verify-certificate no" >> /etc/lftp.conf
-fi
-
 #Add $USER to the docker group (if not existing). Allow you to use docker commands without sudo.
 #WARNING : if sudo is used in a docker build command, the image cant be pulled by k8s later on,
 #due to rights on the image. It will result with a "Image can't be pulled" error and deployments won't work.
@@ -23,6 +13,16 @@ then
 	echo ${GREEN}"==Need admin password to do so.=="${WHITE}
 	sudo usermod -aG docker $USER
 	sudo shutdown -r now
+fi
+
+#Install requirements for pure-ftpd.
+echo ${GREEN}"\n\t==Installing lftp, need admin password to do so.=="${WHITE}
+sudo -S apt install lftp
+sudo chmod 777 /etc/lftp.conf
+grep "set ssl:verify-certificate no" /etc/lftp.conf
+if [ $? -ne 0 ]
+then
+	echo "set ssl:verify-certificate no" >> /etc/lftp.conf
 fi
 
 #Creating logs repository if it does not exist.
